@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     // MARK: IB Outlets
     @IBOutlet weak var outRGBView: UIView!
     
@@ -47,7 +47,8 @@ final class ViewController: UIViewController {
     
     // MARK: Private methods
     private func setLabelValue (for label: UILabel, from slider: UISlider) {
-        label.text = (round(slider.value * 100) / 100).formatted()
+//        label.text = (round(slider.value * 100) / 100).formatted()
+        label.text = String(format: "%.2f", slider.value)
     }
     
     private func setOutRGB() {
@@ -61,7 +62,7 @@ final class ViewController: UIViewController {
 }
 
 // MARK: UI Initialisation
-extension ViewController {
+extension SettingsViewController {
     private func setupOutRGB() {
         outRGBView.layer.cornerRadius = 10
         outRGBView.layer.borderWidth = 2
@@ -80,8 +81,8 @@ extension ViewController {
     }
     
     private func setupLabels() {
-        redLabel.text = redSlider.value.formatted()
-        greenLabel.text = greenSlider.value.formatted()
-        blueLabel.text = blueSlider.value.formatted()
+        redLabel.text = String(format: "%.2f", redSlider.value)
+        greenLabel.text = String(format: "%.2f", greenSlider.value)
+        blueLabel.text = String(format: "%.2f", blueSlider.value)
     }
 }

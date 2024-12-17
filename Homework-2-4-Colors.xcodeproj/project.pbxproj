@@ -14,7 +14,7 @@
 		D2F31D9A2CF9A3A700CF0971 /* Exceptions for "Homework-2-4-Colors" folder in "Homework-2-4-Colors" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				App/Info.plist,
 			);
 			target = D2F31D872CF9A3A600CF0971 /* Homework-2-4-Colors */;
 		};
@@ -147,7 +147,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MB84K2JPJV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Homework-2-4-Colors/Info.plist";
+				INFOPLIST_FILE = "Homework-2-4-Colors/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -180,7 +180,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MB84K2JPJV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Homework-2-4-Colors/Info.plist";
+				INFOPLIST_FILE = "Homework-2-4-Colors/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
