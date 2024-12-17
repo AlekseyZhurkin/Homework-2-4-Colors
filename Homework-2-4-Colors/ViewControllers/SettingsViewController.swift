@@ -19,14 +19,18 @@ final class SettingsViewController: UIViewController {
     @IBOutlet weak var greenSlider: UISlider!
     @IBOutlet weak var blueSlider: UISlider!
     
+    // MARK: - Public Properties
+    var mainColor: UIColor!
+    weak var delegate: SettingsViewControllerDelegate?
     
     // MARK: Override methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupSliders()
+        setupSliders(from: mainColor)
         setupLabels()
         setupOutRGB()
+        setOutRGB()
     }
     
     // MARK: IB Actions
@@ -43,6 +47,12 @@ final class SettingsViewController: UIViewController {
     @IBAction func blueSliderMoved() {
         setLabelValue(for: blueLabel, from: blueSlider)
         setOutRGB()
+    }
+    @IBAction func doneButtonAction() {
+        if let rgbColor = outRGBView.backgroundColor {
+            delegate?.didSelectColor(rgbColor)
+        }
+        dismiss(animated: true)
     }
     
     // MARK: Private methods
@@ -74,10 +84,21 @@ extension SettingsViewController {
         )
     }
     
-    private func setupSliders() {
-        redSlider.value = 1.00
-        greenSlider.value = 1.00
-        blueSlider.value = 1.00
+    private func setupSliders(from mainColor: UIColor) {
+        var colorRed: CGFloat = 0
+        var colorGreen: CGFloat = 0
+        var colorBlue: CGFloat = 0
+        var colorAlpha: CGFloat = 0
+        
+        if mainColor.getRed(&colorRed, green: &colorGreen, blue: &colorBlue, alpha: &colorAlpha) {
+            redSlider.value = Float(colorRed)
+            greenSlider.value = Float(colorGreen)
+            blueSlider.value = Float(colorBlue)
+        } else {
+            redSlider.value = 1
+            greenSlider.value = 1
+            blueSlider.value = 1
+        }
     }
     
     private func setupLabels() {
